@@ -1,9 +1,9 @@
 {
-  "IsEncrypted": false,
+  "IsEncrypted": true,
   "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "SqlConnectionString": "Server=tcp:sankartechiesqlsvr.database.windows.net,1433;Initial Catalog=azuredemosqldb;Persist Security Info=False;User ID=sankartechie;Password=SanVishvas@34;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoHK/pNcbj6qK/yYN0/PzhAPVy4G234y9kOf2a9SkYQZFE+Ocfhde3JUpqjeQpTLUdTG1n8TWVO7eZguACsBKZ6xenJ7a01vXcXZ55+YaaYmGcqKeiM89ek7f+7d33qUdVM=",
+    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8H+wdOBqW/xCm+MU24WVxoF6ARIY8QlOYKvJFrzdXgT3mVmwtsJJO0vuXBKYLLvA9vjaTMfpthCXBsKVeZCmPGknjBlRP45mFgOEy50mME70hRQhboRvfeFbVeQDmCAQMA==",
+    "SqlConnectionString": "CfDJ8H+wdOBqW/xCm+MU24WVxoFkC5CVox5zZpxgjePyEXC3Ov0f/KjdV+5CkWqXvXG8wMYc8KlttnW9/i+H0KCiY+SonwUJq6QDB0pvTPK3wUgMMoSvDXXMWojFU+h1GuznlbyZKAjhaSrQqt0adYqqUVCGCLzSugooJcU1jbARZAKtuaedTcOtwgx0GFmY8lHZ6tdPhMcdt1nwtGNKbz3UZwynUZqOvKH5UbhmtRaUG0tFeWZIKno+wy3/+AkQCsUEU0lBBmUcsgjnOi/wR9FXn5e4BCBj+8e3YdUBXnn6QHJ8NCbBqu5nPGEAAosMXkyJwwNUMRSaII+yFyIgiZdBxtzMG8+EFKXie4Sjw/425nwN3iHbgp0PS73e7YvW1G9dysQptZKFPNmwpe/XO8WAZuxR3mXa3j/vm56ku1JyhAf5PM89EXQR55byPChNhhamtA=="
   },
   "ConnectionStrings": {}
 }
