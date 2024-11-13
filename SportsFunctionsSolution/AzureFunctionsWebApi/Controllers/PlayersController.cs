@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AzureFunctionsWebApi.Controllers
 {
-    [Route("wttapi/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PlayersController : ControllerBase
     {
