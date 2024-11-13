@@ -1,9 +1,9 @@
 {
   "IsEncrypted": true,
   "Values": {
-    "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoHK/pNcbj6qK/yYN0/PzhAPVy4G234y9kOf2a9SkYQZFE+Ocfhde3JUpqjeQpTLUdTG1n8TWVO7eZguACsBKZ6xenJ7a01vXcXZ55+YaaYmGcqKeiM89ek7f+7d33qUdVM=",
-    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8H+wdOBqW/xCm+MU24WVxoF6ARIY8QlOYKvJFrzdXgT3mVmwtsJJO0vuXBKYLLvA9vjaTMfpthCXBsKVeZCmPGknjBlRP45mFgOEy50mME70hRQhboRvfeFbVeQDmCAQMA==",
-    "SqlConnectionString": "CfDJ8H+wdOBqW/xCm+MU24WVxoFkC5CVox5zZpxgjePyEXC3Ov0f/KjdV+5CkWqXvXG8wMYc8KlttnW9/i+H0KCiY+SonwUJq6QDB0pvTPK3wUgMMoSvDXXMWojFU+h1GuznlbyZKAjhaSrQqt0adYqqUVCGCLzSugooJcU1jbARZAKtuaedTcOtwgx0GFmY8lHZ6tdPhMcdt1nwtGNKbz3UZwynUZqOvKH5UbhmtRaUG0tFeWZIKno+wy3/+AkQCsUEU0lBBmUcsgjnOi/wR9FXn5e4BCBj+8e3YdUBXnn6QHJ8NCbBqu5nPGEAAosMXkyJwwNUMRSaII+yFyIgiZdBxtzMG8+EFKXie4Sjw/425nwN3iHbgp0PS73e7YvW1G9dysQptZKFPNmwpe/XO8WAZuxR3mXa3j/vm56ku1JyhAf5PM89EXQR55byPChNhhamtA=="
+    "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoEMXNB2Ib4PElbhAVeHd7U+mS9V6uhiP2+IrR89hBafWYvn8uCook6mWxqTy6Moxr06zwG8E6kFD/RxNcAM9d12+4PxqBlMXw3L1HNsaNEz3/D+/w4+xFvTAbGBX8nyu0E=",
+    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8H+wdOBqW/xCm+MU24WVxoGh3XlL3DYcH7WwyKZLowZs9bgcdE+AYTKM4clXg3/TZA/oo2xkC/Gp/3wP+X9PEhK1d1+jfdAMw/9PE3eAXmlSQXnIoQdDKlRntaRQZ3wBBQ==",
+    "SqlConnectionString": "CfDJ8H+wdOBqW/xCm+MU24WVxoHvDZX8j63pSsoXodOrDBn1kp94AJagaDdAY7M8ENEKQK4R/BYaTyydDiFyi+jM7f+rNRkqbnyv1t8dmAbV4KsC6fSTnhE08bhTmsBhOu1Nb4LosRd2bfxWnHzj4n19UIFM/9hUcpgJQ4PFOjXv8I/k2644TotD7WcGB0JdMbzOKbXrLTprcJv3JSoH5g/1oRwUDt/sw3RQEBQ9lIXrwvucw5egggWR34M5Elt9t3CJdjaFjJvMjFFbSxNHSTwA5xrlJx+fV2cLwhh3Sz0Dxe5wr/v0mjIgFKtp6zfm98yrx/8vyGdm0UHWqk3DFml88pnniV5byUiFS5vwlXkzJjeD+gDMtrmAe8mBgTrsscgL5BanS0woQbKaPr9ZWtkVHRQpltQR63sqNK5N41p3X956M4Xq9FUpT8Zgewpqy+oB2TuIGvZiM+oUj2Gr1k4cqbA="
   },
   "ConnectionStrings": {}
 }
