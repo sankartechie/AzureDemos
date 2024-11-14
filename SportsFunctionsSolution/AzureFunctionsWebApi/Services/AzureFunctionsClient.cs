@@ -27,7 +27,7 @@ namespace AzureFunctionsWebApi.Services
 
         public async Task<Player> GetPlayerInfoAsync(string playerId)
         {
-            var response = await _httpClient.GetAsync($"{_baseUrl}/GetPlayerInfo/{playerId}");
+            var response = await _httpClient.GetAsync($"{_baseUrl}/players/{playerId}");
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<Player>();
