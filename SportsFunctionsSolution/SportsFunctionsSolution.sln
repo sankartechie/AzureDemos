@@ -6,6 +6,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsFunctionsApp", "Sport
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsWebApi", "AzureFunctionsWebApi\AzureFunctionsWebApi.csproj", "{106668A1-118D-4FCC-8BFF-79B6B892E08C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsWebApi.Tests", "AzureFunctionsWebApi.Tests\AzureFunctionsWebApi.Tests.csproj", "{5820BED8-98B1-47AE-89FF-DABE72834C0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{106668A1-118D-4FCC-8BFF-79B6B892E08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106668A1-118D-4FCC-8BFF-79B6B892E08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{106668A1-118D-4FCC-8BFF-79B6B892E08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5820BED8-98B1-47AE-89FF-DABE72834C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5820BED8-98B1-47AE-89FF-DABE72834C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5820BED8-98B1-47AE-89FF-DABE72834C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5820BED8-98B1-47AE-89FF-DABE72834C0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
