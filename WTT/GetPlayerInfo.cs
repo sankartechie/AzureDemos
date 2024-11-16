@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Configuration;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 
 namespace WTT
 {
@@ -17,11 +20,20 @@ namespace WTT
         [Function("GetPlayerInfo")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "players/{playerId}")] HttpRequest req,
-            string playerId,
-            ILogger log)
+            string playerId, ILogger log)
         {
-            string connectionString = "Server=tcp:sankartechiesqlsvr.database.windows.net,1433;Initial Catalog=azuredemosqldb;Persist Security Info=False;User ID=sankartechie;Password=SanTechie@Azure;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                //Environment.GetEnvironmentVariable("SqlConnectionString",EnvironmentVariableTarget.Machine);
+            var azureCredentialOptions = new DefaultAzureCredentialOptions();
+            var credential = new DefaultAzureCredential(azureCredentialOptions);
+            var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
+
+            // Create a SecretClient
+            var secretClient = new SecretClient(new Uri(AzKeyVaultUri), credential);
+            var Configuration = new ConfigurationBuilder()
+                    .AddAzureKeyVault(new Uri(AzKeyVaultUri),
+                        new DefaultAzureCredential())
+                    .Build();
+            string connectionString = Configuration["WTT-SQLdbConnStr"];
+            //Environment.GetEnvironmentVariable("SqlConnectionString",EnvironmentVariableTarget.Machine);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

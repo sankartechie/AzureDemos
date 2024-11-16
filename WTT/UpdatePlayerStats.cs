@@ -7,6 +7,9 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Extensions;
 using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using Microsoft.Extensions.Configuration;
 
 namespace WTT
 {
@@ -16,8 +19,18 @@ namespace WTT
         [Function("UpdatePlayerStats")]
         public static async Task Run([TimerTrigger("0 */2 * * * *")] TimerInfo timer, ILogger log)
         {
-            string connectionString = "Server=tcp:sankartechiesqlsvr.database.windows.net,1433;Initial Catalog=azuredemosqldb;Persist Security Info=False;User ID=sankartechie;Password=SanTechie@Azure;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                //Environment.GetEnvironmentVariable("SqlConnectionString");
+            var azureCredentialOptions = new DefaultAzureCredentialOptions();
+            var credential = new DefaultAzureCredential(azureCredentialOptions);
+            var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
+
+            // Create a SecretClient
+            var secretClient = new SecretClient(new Uri(AzKeyVaultUri), credential);
+            var Configuration = new ConfigurationBuilder()
+                    .AddAzureKeyVault(new Uri(AzKeyVaultUri),
+                        new DefaultAzureCredential())
+                    .Build();
+            string connectionString = Configuration["WTT-SQLdbConnStr"];
+            //Environment.GetEnvironmentVariable("SqlConnectionString");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

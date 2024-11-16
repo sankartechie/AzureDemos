@@ -1,11 +1,18 @@
 {
   "dependencies": {
-    "appInsights1": {
-      "type": "appInsights.sdk"
-    },
     "storage1": {
       "type": "storage.emulator",
       "connectionId": "AzureWebJobsStorage"
+    },
+    "secrets1": {
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/SanTechieAzKeyVault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri",
+      "dynamicId": null
+    },
+    "secrets2": {
+      "type": "secrets.user"
     }
   }
 }

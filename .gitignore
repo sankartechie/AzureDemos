@@ -3,3 +3,12 @@
 ################################################################################
 
 /SportsFunctionsSolution/AzureFunctionsWebApi/Properties/1launchSettings.json1
+/AzureFunctionsWebApi/.vs
+/AzureFunctionsWebApi/bin/Debug/net8.0
+/AzureFunctionsWebApi/obj
+/SportsFunctionsSolution/.vs/SportsFunctionsSolution
+/SportsFunctionsSolution/AzureFunctionsWebApi/obj
+/SportsFunctionsSolution/AzureFunctionsWebApi.Tests/obj
+/SportsFunctionsSolution/SportsFunctionsApp/obj
+/AzureFunctionsWebApi
+/SportsFunctionsSolution

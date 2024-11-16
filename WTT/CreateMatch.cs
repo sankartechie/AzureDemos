@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Microsoft.Azure.Functions.Worker;
+using Azure.Security.KeyVault.Secrets;
+//using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using Azure.Identity;
 //using Microsoft.Azure.Functions.Worker.Sdk;
 
 namespace WTT
@@ -25,6 +29,18 @@ namespace WTT
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
 
+            var azureCredentialOptions = new DefaultAzureCredentialOptions();
+            var credential = new DefaultAzureCredential(azureCredentialOptions);
+            var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
+
+            // Create a SecretClient
+            var secretClient = new SecretClient(new Uri(AzKeyVaultUri), credential);
+            var Configuration = new ConfigurationBuilder()
+                    .AddAzureKeyVault(new Uri(AzKeyVaultUri),
+                        new DefaultAzureCredential())
+                    .Build();
+            string connectionString = Configuration["WTT-SQLdbConnStr"];
+
             Guid matchId = Guid.NewGuid();
             Guid player1Id = data?.player1Id;
             Guid player2Id = data?.player2Id;
@@ -35,15 +51,13 @@ namespace WTT
             string player1Nationality = data?.player1Nationality;
             string player2Nationality = data?.player2Nationality;
 
-            string connectionString = "Server=tcp:sankartechiesqlsvr.database.windows.net,1433;Initial Catalog=azuredemosqldb;Persist Security Info=False;User ID=sankartechie;Password=SanTechie@Azure;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 var text = @"INSERT INTO Matches (match_id, player1_id, player1_name, player1_nationality, 
-                             player2_id, player2_name, player2_nationality, match_won_by) 
-                             VALUES (@MatchId, @Player1Id, @Player1Name, @Player1Nationality, 
-                                     @Player2Id, @Player2Name, @Player2Nationality, @MatchWonBy)";
+                            player2_id, player2_name, player2_nationality, match_won_by) 
+                            VALUES (@MatchId, @Player1Id, @Player1Name, @Player1Nationality, 
+                                    @Player2Id, @Player2Name, @Player2Nationality, @MatchWonBy)";
 
                 using (SqlCommand cmd = new SqlCommand(text, conn))
                 {
