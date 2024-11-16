@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "2e1e8407-8d0c-44ff-bc6a-75f2e7d3d0b1",
+		"name": "sanazr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32299571"
+	},
+	"item": [
+		{
+			"name": "https://sankartechieapim.azure-api.net/sankartechieazurefn/players/:playerId",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ocp-apim-subscription-key",
+						"value": "8076be76e22348dcbdfe3b2618ec3e3f",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sankartechieapim.azure-api.net/sankartechieazurefn/players/:playerId",
+					"protocol": "https",
+					"host": [
+						"sankartechieapim",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"sankartechieazurefn",
+						"players",
+						":playerId"
+					],
+					"variable": [
+						{
+							"key": "playerId",
+							"value": "5fb4bfa9-f4dd-44fb-8239-1f7835145948"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
