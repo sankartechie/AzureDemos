@@ -12,3 +12,6 @@
 /SportsFunctionsSolution/SportsFunctionsApp/obj
 /AzureFunctionsWebApi
 /SportsFunctionsSolution
+*/.vs
+*/obj
+*/bin
