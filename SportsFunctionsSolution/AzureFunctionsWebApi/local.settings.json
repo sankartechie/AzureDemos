@@ -1,10 +1,8 @@
 {
-  "IsEncrypted": false,
+  "IsEncrypted": true,
   "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+    "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoFL2J1jTWppRRhGSvQ5joyBfKrzrpuSFz+K8N5aK7uBui1urqoK09PLOQMyXPadAB6Ea/kruOPM1OtHTRJyGyxsyrD9eWCeL3rj4+EypGJnt0fAurV2YXLtBMU2HGgL5xI=",
+    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8H+wdOBqW/xCm+MU24WVxoHGxMyTCCXP/9k+bSVx9YfPdLl4A9NzA2qBV6tvAJ6F23o1aeRxDL10eHiU+kjEtPiEvCbPYej3vwqnNbJOOH4nHjFdoFL31aU5wV0zMwM93g=="
   },
-  "AzureFunctions": {
-	"BaseUrl": "https://sankartechieazurefn.azurewebsites.net/echo"
-  }
+  "ConnectionStrings": {}
 }

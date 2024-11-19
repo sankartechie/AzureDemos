@@ -3,22 +3,38 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Extensions.Configuration;
 
-namespace CosmosDBSetup
+namespace SportsFunctionsApp
 {
     public class CosmosDBSetup
     {
-        private static readonly string EndpointUri = "CosmosDB_Endpoint";
-        private static readonly string PrimaryKey = "CosmosDB_PrimaryKey";
+        private static string cosmosDBep;
+        private static string cosmosDBpk;
         private static CosmosClient cosmosClient;
         private static Database database;
         private static Microsoft.Azure.Cosmos.Container playerContainer;
         private static Microsoft.Azure.Cosmos.Container matchContainer;
 
-        public async Task CosmosDBsetup(string[] args)
+        public async Task CosmosDBsetup()
         {
-            cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+            var azureCredentialOptions = new DefaultAzureCredentialOptions();
+            var credential = new DefaultAzureCredential(azureCredentialOptions);
+            var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
+
+            // Create a SecretClient
+            var secretClient = new SecretClient(new Uri(AzKeyVaultUri.ToString()), credential);
+            var Configuration = new ConfigurationBuilder()
+                    .AddAzureKeyVault(new Uri(AzKeyVaultUri),
+                        new DefaultAzureCredential())
+                    .Build();
+            cosmosDBpk = Configuration["SanWTTCosmosDB-PrimaryKey"];
+            cosmosDBep = Environment.GetEnvironmentVariable("CosmosDB_Endpoint"); 
+
+            cosmosClient = new CosmosClient(cosmosDBep, cosmosDBpk);
 
             // Create Database and Containers
             await CreateDatabaseAsync();
@@ -33,8 +49,8 @@ namespace CosmosDBSetup
 
         private static async Task CreateDatabaseAsync()
         {
-            database = await cosmosClient.CreateDatabaseIfNotExistsAsync("SportsDB");
-            Console.WriteLine("Database 'SportsDB' created (or existed already).");
+            database = await cosmosClient.CreateDatabaseIfNotExistsAsync("WTT_SportsDB");
+            Console.WriteLine("Database 'WTT_SportsDB' created (or existed already).");
         }
 
         private static async Task CreateContainersAsync()
@@ -52,7 +68,7 @@ namespace CosmosDBSetup
 
             foreach (var player in players)
             {
-                await playerContainer.UpsertItemAsync(player);
+                await playerContainer.UpsertItemAsync(player, player.name);
             }
 
             Console.WriteLine("Players data seeded.");
