@@ -1,12 +1,12 @@
 {
-  "IsEncrypted": true,
+  "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoFh9h6tVQk4HNMAlj83J3jdkU9bRCnFpKyzqI5ttsfPBgSP5CAxYn6FmypjaDC8FpOk+KF3l1W6fqzENaIdqK8dZdoYLhZL7D7L75+3pzhX2rMLLGaxvvAn58dGS/nie+Y=",
-    "CosmosDB_Endpoint": "CfDJ8H+wdOBqW/xCm+MU24WVxoHXBjxSAHsBDCC0IwykZiVlm2FeqgJIb2IY7CHOVcr49HDQujEnzjemzkdlvuj5Y5dLYrJBq3TFEhR8M81EdVqM6rmzV7+D3u5tvt5NDohygJvIys9AOXO1PdXvtEqnXlFXmlicVEL5uf1Nwy9o74K+",
-    "Database": "CfDJ8H+wdOBqW/xCm+MU24WVxoGM0yUSkZyqxLP+eT6XBRm0n1SWMorRhHWYO4sEs0e1JM7dHc8W3qkosbN5mKBnmq/9PYeV8mYrCEIkwJ+3bsgkptopWjDUyfrnA9M7JysBYQ==",
-    "AzKeyVaultUri": "CfDJ8H+wdOBqW/xCm+MU24WVxoFYrNAsViro1f5lD4bH1KqGpWjNeKMF+cciKzo63SLzGXds0NhKn9levf0R+FrQHsYz/EeHWtqta20XixfLIBpjtzWkzv55RJXujzo/GUjZrlj99mdAiWafoN+yekVEv+ODvzFaJyO9Sp2uundZbdWN",
-    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8H+wdOBqW/xCm+MU24WVxoFi2HRTLL8Ua4OEmdDSxXVSWlDvx0S18hWsJf5ciDQxkBhsMkLNKG51ELsZZctEP6UMJKPHHALt9WFE57qCboz6YdEBpAskpB5oFPcH8yQERw==",
-    "FUNCTIONS_WORKER_RUNTIME_VERSION": "CfDJ8H+wdOBqW/xCm+MU24WVxoHJhITc43RMEx755Vl7ttRb04+ERMeo7JJeOYk/Tr26QOsUJDVI4zH1rcPYnHe0TDeFCNFz16jUQ4nS/RXmxc2+8Z6BxuQQkbapBysiTTPkuA=="
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "CosmosDB_Endpoint": "https://santechie-cosmosnosql.documents.azure.com:443/",
+    "Database": "Cosmos",
+    "AzKeyVaultUri": "https://santechieazkeyvault.vault.azure.net/",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION": "V4"
   },
   "ConnectionStrings": {},
   "Host": {

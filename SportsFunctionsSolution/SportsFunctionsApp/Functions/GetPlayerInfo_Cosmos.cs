@@ -12,6 +12,7 @@ using Azure.Security.KeyVault.Secrets;
 using Microsoft.Extensions.Configuration;
 using SportsFunctionsApp.Utilities;
 using Microsoft.Azure.Cosmos;
+using SportsFunctionsApp.Models;
 
 namespace SportsFunctionsApp.Functions
 {
@@ -47,7 +48,7 @@ namespace SportsFunctionsApp.Functions
             {
                 playerContainer = _cosmosDbHelper.GetContainer("Player");
 
-                var playerResponse = await playerContainer.ReadItemAsync<dynamic>(playerId, new PartitionKey(playerId));
+                var playerResponse = await playerContainer.ReadItemAsync<Player>(playerId, new PartitionKey(playerId));
                 var player = playerResponse.Resource;
 
                 return new OkObjectResult(player);

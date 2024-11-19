@@ -7,6 +7,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Configuration;
+using SportsFunctionsApp.Models;
 
 namespace SportsFunctionsApp
 {
@@ -42,7 +43,7 @@ namespace SportsFunctionsApp
 
             // Seed Players and Matches data
             //await AddPlayersAsync();
-            //await AddMatchesAsync();
+            await AddMatchesAsync();
 
             Console.WriteLine("Database setup and data seeding complete!");
         }
@@ -64,33 +65,34 @@ namespace SportsFunctionsApp
 
         private static async Task AddPlayersAsync()
         {
-            var players = GeneratePlayers();
+            List<Player> players = GeneratePlayers();
 
-            foreach (var player in players)
+            foreach (Player player in players)
             {
-                await playerContainer.UpsertItemAsync(player, player.name);
+                await playerContainer.UpsertItemAsync<Player>(player, new PartitionKey(player.PlayerId.ToString()));
             }
 
             Console.WriteLine("Players data seeded.");
         }
 
-        private static List<dynamic> GeneratePlayers()
+        private static List<Player> GeneratePlayers()
         {
             var playerNames = new[] { "Alice", "Bob", "Charlie", "Dana", "Eve", "Frank", "Grace", "Hector", "Ivy", "Judy" };
             var nationalities = new[] { "USA", "UK", "Canada", "France", "Germany", "Australia", "India", "Brazil", "Japan", "Mexico" };
 
-            return playerNames.Select((name, index) => new
+            return playerNames.Select((name, index) => new Player
             {
-                playerId = Guid.NewGuid(),
-                name = name,
-                address = $"Address {index + 1}",
-                nationality = nationalities[index % nationalities.Length],
-                gender = index % 2 == 0 ? "Male" : "Female",
-                totalMatchesPlayed = 0,
-                won = 0,
-                lost = 0,
-                winLossPercentage = 0.0
-            }).ToList<dynamic>();
+                Id = index.ToString(),
+                PlayerId = Guid.NewGuid(),
+                Name = name.ToString(),
+                Address = $"Address {index + 1}".ToString(),
+                Nationality = nationalities[index % nationalities.Length].ToString(),
+                Gender = index % 2 == 0 ? "Male" : "Female".ToString(),
+                TotalMatchesPlayed = 0,
+                Won = 0,
+                Lost = 0,
+                WinLossPercentage = 0.0
+            }).ToList<Player>();
         }
 
         private static async Task AddMatchesAsync()
@@ -100,36 +102,37 @@ namespace SportsFunctionsApp
 
             for (int i = 0; i < 100; i++)
             {
-                var player1 = players[random.Next(players.Count)];
-                var player2 = players[random.Next(players.Count)];
+                Player player1 = players[random.Next(players.Count)];
+                Player player2 = players[random.Next(players.Count)];
 
-                while (player1.playerId == player2.playerId)
+                while (player1.PlayerId == player2.PlayerId)
                 {
                     player2 = players[random.Next(players.Count)];
                 }
 
-                var match = new
+                var match = new Match
                 {
-                    matchId = Guid.NewGuid(),
-                    player1Id = player1.playerId,
-                    player1Name = player1.name,
-                    player1Nationality = player1.nationality,
-                    player2Id = player2.playerId,
-                    player2Name = player2.name,
-                    player2Nationality = player2.nationality,
-                    matchWonBy = random.Next(2) == 0 ? player1.playerId : player2.playerId
+                    Id = i.ToString(),
+                    MatchId = Guid.NewGuid(),
+                    Player1Id = player1.PlayerId,
+                    Player1Name = player1.Name,
+                    Player1Nationality = player1.Nationality,
+                    Player2Id = player2.PlayerId,
+                    Player2Name = player2.Name,
+                    Player2Nationality = player2.Nationality,
+                    MatchWonBy = random.Next(2) == 0 ? player1.PlayerId : player2.PlayerId
                 };
 
-                await matchContainer.UpsertItemAsync(match);
+                await matchContainer.UpsertItemAsync<Match>(match, new PartitionKey(match.MatchId.ToString()));
             }
 
             Console.WriteLine("Matches data seeded.");
         }
 
-        private static async Task<List<dynamic>> GetPlayersAsync()
+        private static async Task<List<Player>> GetPlayersAsync()
         {
-            var query = playerContainer.GetItemQueryIterator<dynamic>("SELECT * FROM Players");
-            var players = new List<dynamic>();
+            var query = playerContainer.GetItemQueryIterator<Player>("SELECT * FROM Players");
+            var players = new List<Player>();
 
             while (query.HasMoreResults)
             {
