@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.Azure.Functions.Worker;
-//using Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,38 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 
-//[assembly: FunctionsStartup(typeof(SportsFunctionsApp.Startup))]
-
 namespace SportsFunctionsApp
 {
-    //public class Startup : FunctionsStartup
-    //{
-    //    public override void Configure(IFunctionsHostBuilder builder)
-    //    {
-    //        var azureCredentialOptions = new DefaultAzureCredentialOptions();
-    //        var credential = new DefaultAzureCredential(azureCredentialOptions);
-    //        var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
-
-    //        // Create a SecretClient
-    //        var secretClient = new SecretClient(new Uri(AzKeyVaultUri.ToString()), credential);
-    //        var Configuration = new ConfigurationBuilder()
-    //                .AddAzureKeyVault(new Uri(AzKeyVaultUri),
-    //                    new DefaultAzureCredential())
-    //                .Build();
-    //        string SQLconnStr = Configuration["WTT-SQLdbConnStr"];
-    //        string cosmosDBpk = Configuration["SanWTTCosmosDB-PrimaryKey"];
-
-    //        builder.Services.AddSingleton(sp =>
-    //            new CosmosDbHelper(
-    //                Environment.GetEnvironmentVariable("CosmosDB_Endpoint"),
-    //                cosmosDBpk,
-    //                "WTT_SportsDB"));
-
-    //        builder.Services.AddSingleton(sp =>
-    //            new SqlDbHelper(SQLconnStr);
-    //    }
-    //}
-
     public class Program
     {
         public static async Task Main(string[] args)

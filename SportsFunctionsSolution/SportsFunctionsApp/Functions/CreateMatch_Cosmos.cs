@@ -13,9 +13,6 @@ using Azure.Identity;
 using SportsFunctionsApp.Utilities;
 using SportsFunctionsApp.Models;
 using Microsoft.Azure.Cosmos;
-//using System.ComponentModel;
-//using Microsoft.Azure.Functions.Worker.Sdk;
-//using System.Configuration;
 
 namespace WTT
 {

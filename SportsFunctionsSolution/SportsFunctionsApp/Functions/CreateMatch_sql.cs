@@ -11,11 +11,6 @@ using Microsoft.Azure.Functions.Worker;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.Extensions.Configuration;
 using Azure.Identity;
-//using System.Data.SqlClient;
-//using Microsoft.Azure.Functions.Worker.Sdk;
-//using Microsoft.Azure.WebJobs;
-//using Microsoft.Azure.WebJobs.Extensions;
-//using System.Configuration;
 
 namespace WTT
 {
