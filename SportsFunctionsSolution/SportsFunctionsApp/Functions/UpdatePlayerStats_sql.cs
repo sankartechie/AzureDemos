@@ -28,10 +28,10 @@ namespace WTT
                     .AddAzureKeyVault(new Uri(AzKeyVaultUri),
                         new DefaultAzureCredential())
                     .Build();
-            string connectionString = Configuration["WTT-SQLdbConnStr"];
+            string sqlConnStr = Configuration["WTT-SQLdbConnStr"];
             //Environment.GetEnvironmentVariable("SqlConnectionString");
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(sqlConnStr))
             {
                 conn.Open();
 

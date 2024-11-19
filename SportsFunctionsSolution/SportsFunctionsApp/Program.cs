@@ -14,24 +14,37 @@ using Microsoft.Extensions.Configuration;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 
-[assembly: FunctionsStartup(typeof(SportsFunctionsApp.Startup))]
+//[assembly: FunctionsStartup(typeof(SportsFunctionsApp.Startup))]
 
 namespace SportsFunctionsApp
 {
-    public class Startup : FunctionsStartup
-    {
-        public override void Configure(IFunctionsHostBuilder builder)
-        {
-            builder.Services.AddSingleton(sp =>
-                new CosmosDbHelper(
-                    Environment.GetEnvironmentVariable("CosmosEndpointUri"),
-                    Environment.GetEnvironmentVariable("CosmosPrimaryKey"),
-                    "SportsDatabase"));
+    //public class Startup : FunctionsStartup
+    //{
+    //    public override void Configure(IFunctionsHostBuilder builder)
+    //    {
+    //        var azureCredentialOptions = new DefaultAzureCredentialOptions();
+    //        var credential = new DefaultAzureCredential(azureCredentialOptions);
+    //        var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
 
-            builder.Services.AddSingleton(sp =>
-                new SqlDbHelper(Environment.GetEnvironmentVariable("SqlConnectionString")));
-        }
-    }
+    //        // Create a SecretClient
+    //        var secretClient = new SecretClient(new Uri(AzKeyVaultUri.ToString()), credential);
+    //        var Configuration = new ConfigurationBuilder()
+    //                .AddAzureKeyVault(new Uri(AzKeyVaultUri),
+    //                    new DefaultAzureCredential())
+    //                .Build();
+    //        string SQLconnStr = Configuration["WTT-SQLdbConnStr"];
+    //        string cosmosDBpk = Configuration["SanWTTCosmosDB-PrimaryKey"];
+
+    //        builder.Services.AddSingleton(sp =>
+    //            new CosmosDbHelper(
+    //                Environment.GetEnvironmentVariable("CosmosDB_Endpoint"),
+    //                cosmosDBpk,
+    //                "WTT_SportsDB"));
+
+    //        builder.Services.AddSingleton(sp =>
+    //            new SqlDbHelper(SQLconnStr);
+    //    }
+    //}
 
     public class Program
     {

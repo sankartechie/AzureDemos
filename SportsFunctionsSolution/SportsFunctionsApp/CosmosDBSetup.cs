@@ -41,8 +41,8 @@ namespace SportsFunctionsApp
             await CreateContainersAsync();
 
             // Seed Players and Matches data
-            await AddPlayersAsync();
-            await AddMatchesAsync();
+            //await AddPlayersAsync();
+            //await AddMatchesAsync();
 
             Console.WriteLine("Database setup and data seeding complete!");
         }

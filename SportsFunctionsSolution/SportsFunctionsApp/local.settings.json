@@ -1,5 +1,5 @@
 {
-  "IsEncrypted": true,
+  "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoFh9h6tVQk4HNMAlj83J3jdkU9bRCnFpKyzqI5ttsfPBgSP5CAxYn6FmypjaDC8FpOk+KF3l1W6fqzENaIdqK8dZdoYLhZL7D7L75+3pzhX2rMLLGaxvvAn58dGS/nie+Y=",
     "CosmosDB_Endpoint": "CfDJ8H+wdOBqW/xCm+MU24WVxoHXBjxSAHsBDCC0IwykZiVlm2FeqgJIb2IY7CHOVcr49HDQujEnzjemzkdlvuj5Y5dLYrJBq3TFEhR8M81EdVqM6rmzV7+D3u5tvt5NDohygJvIys9AOXO1PdXvtEqnXlFXmlicVEL5uf1Nwy9o74K+",

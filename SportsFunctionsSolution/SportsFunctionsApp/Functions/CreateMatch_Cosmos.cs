@@ -42,7 +42,7 @@ namespace WTT
 
         [Function("CreateMatch_Cosmos")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "matches")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "matches_cosmos")] HttpRequest req,
             ILogger log)
         {
             Container matchcontainer;

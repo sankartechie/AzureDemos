@@ -23,7 +23,7 @@ namespace WTT
     {
         [Function("CreateMatch_SQL")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "matches")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "matches_sql")] HttpRequest req,
             ILogger log)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
@@ -39,7 +39,7 @@ namespace WTT
                     .AddAzureKeyVault(new Uri(AzKeyVaultUri),
                         new DefaultAzureCredential())
                     .Build();
-            string connectionString = Configuration["WTT-SQLdbConnStr"];
+            string sqlConnStr = Configuration["WTT-SQLdbConnStr"];
             string cosmosDBpk = Configuration["SanWTTCosmosDB-PrimaryKey"];
 
             Guid matchId = Guid.NewGuid();
@@ -52,7 +52,7 @@ namespace WTT
             string player1Nationality = data?.player1Nationality;
             string player2Nationality = data?.player2Nationality;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(sqlConnStr))
             {
                 conn.Open();
                 var text = @"INSERT INTO Matches (match_id, player1_id, player1_name, player1_nationality, 

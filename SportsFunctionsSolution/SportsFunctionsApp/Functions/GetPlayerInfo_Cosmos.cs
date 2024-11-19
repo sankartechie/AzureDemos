@@ -37,7 +37,7 @@ namespace SportsFunctionsApp.Functions
 
         [Function("GetPlayerInfo_Cosmos")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "players/{playerId}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "players_cosmos/{playerId}")] HttpRequest req,
             string playerId, ILogger log)
         {
             Container playerContainer;

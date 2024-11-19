@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Microsoft.Azure.Functions.Worker;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using Microsoft.Extensions.Configuration;
 
 namespace SportsFunctionsApp.Functions
 {
@@ -15,13 +18,23 @@ namespace SportsFunctionsApp.Functions
     {
         [Function("GetPlayerInfo_SQL")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "players/{playerId}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "players_sql/{playerId}")] HttpRequest req,
             string playerId,
             ILogger log)
         {
-            string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
+            var azureCredentialOptions = new DefaultAzureCredentialOptions();
+            var credential = new DefaultAzureCredential(azureCredentialOptions);
+            var AzKeyVaultUri = Environment.GetEnvironmentVariable("AzKeyVaultUri");
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            // Create a SecretClient
+            var secretClient = new SecretClient(new Uri(AzKeyVaultUri), credential);
+            var Configuration = new ConfigurationBuilder()
+                    .AddAzureKeyVault(new Uri(AzKeyVaultUri),
+                        new DefaultAzureCredential())
+                    .Build();
+            string sqlConnStr = Configuration["WTT-SQLdbConnStr"];
+
+            using (SqlConnection conn = new SqlConnection(sqlConnStr))
             {
                 conn.Open();
                 var query = "SELECT * FROM Players WHERE player_id = @PlayerId";
