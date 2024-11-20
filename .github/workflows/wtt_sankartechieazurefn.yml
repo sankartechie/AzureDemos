@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - WTT
+      - wtt_bkup
   workflow_dispatch:
 
 env:
