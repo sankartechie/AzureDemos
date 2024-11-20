@@ -7,6 +7,13 @@
       "secretStore": "LocalSecretsFile",
       "type": "storage.emulator",
       "connectionId": "AzuriteConnstr"
+    },
+    "secrets2": {
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/SanTechieAzKeyVault",
+      "type": "secrets.keyVault",
+      "connectionId": "KeyVaultUri",
+      "dynamicId": null
     }
   }
 }

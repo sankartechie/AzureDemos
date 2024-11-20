@@ -1,12 +1,13 @@
 {
-  "IsEncrypted": false,
+  "IsEncrypted": true,
   "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "CosmosDB_Endpoint": "https://santechie-cosmosnosql.documents.azure.com:443/",
-    "Database": "Cosmos",
-    "AzKeyVaultUri": "https://santechieazkeyvault.vault.azure.net/",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-    "FUNCTIONS_WORKER_RUNTIME_VERSION": "V4"
+    "CosmosDB_Endpoint": "CfDJ8H+wdOBqW/xCm+MU24WVxoF2CtQ2asN9oVd3kqiGgIRFQGANH+DLRe/sblOF3pCl2KG/uTyhoVwGy0KU4V3xRxJkKC/Xnk/GJ+I4EQoWVzjEheb508qj55348QCsJuvh8OEZi7wmRaYC1xiZidbZhmxGxORz46N6IqalzK5ALo6INSiYTYj4sZN/kIMM+eI8UQ==",
+    "Database": "CfDJ8H+wdOBqW/xCm+MU24WVxoHdlClXxglU6w6SDO9F9nHSPEzVaPI98D+hOx68Pf04GatJXrhvGk2wzl77Ymjy0vtcRol/6avNR6YjbAs/yWQUy2o1X3dHWfxrYyrRxhKOSg==",
+    "AzKeyVaultUri": "CfDJ8H+wdOBqW/xCm+MU24WVxoGblMpq+/vWVZUPD+xIAUPWpAktTSpiNf+Y5bVKxCWyKzxg4hCsysBZBBrGJxNzr79x5zosCFKq+RFzuDbm8+fZfgDYL3irswu4F/uHmtdQNopb+41ksP0wo7cisgM+Aic3mbk572FujrlF1Rai/XHP",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION": "CfDJ8H+wdOBqW/xCm+MU24WVxoGvAyW3H/C1J6JJzR6R3pOtN6J7xfLHONEMc4tvfWEACUN1Ur5h85rXHeXGIlB/8DzN05PjCz54xlg+LlXN+GtDg+MWZEGBRcq18etQ6ecL2Q==",
+    "AzureWebJobsStorage": "CfDJ8H+wdOBqW/xCm+MU24WVxoFEtSKefWlm9CYpKZWX+Ad/kb2Yw7Tvopd1wOLG+fJt8J1kMbxg5JmEYPUCpuelScH3Sz/25oUNVcVquIWhoAa8YU82opNo8S0LLWdgsrpqHNPOVxL1+cR6xfnyOP30lOMyAD356Esu/Dc5XaZpyFqO4TtFthULE62tPO2HNYXyetQ/WeWIEnlvoza+gzCGKhjnYJ43dt2jQOgjqekEViAkSVfK25KOunIs4S2qLL2oo//QBes50tx5OuADYqEjq5ipo1IdRi5vfnPwjMKIIiSFRXRW7n7Famzf9o3wQqs0a9rz++m89Y05Zhgpk2ynnmeN586su+Ftebjux1gg61xH",
+    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8H+wdOBqW/xCm+MU24WVxoGQVU+TgRUrw0RFXw5LvCxY10EfewzIJfzNScX26He7bVMbdAwuOU9s7/naZE/y7h0ljtuathe1w4mmdGCSyFjLY+5vGAiTGsyinQMZbPKZOQ==",
+    "SqlConnectionString": "CfDJ8H+wdOBqW/xCm+MU24WVxoHEnDV971Aoj+EZ0E8A3n+h0MkSqPX4Cv06OrppdmXyK26rQXVyi/hCkdhMIJ9bxyrsg8u5Pa9c1W4QB7r7URtPVWPZdZmv1TDZ+q1zsmY5bPBDHl/CyNGv1wYXbuR3ckT7RC35iZK/ctCn9gF8FuWvGz+pdnzhCcR2qUp33W/+OZXVK/myxY+ZAKm+gI1vMiKXwPQNVMWVMpgrhKfwAYRLR1UmBawo3+58/YjqluphgIp6EP+dEkkOMUi6dYKq2N1BlxGUaMJPD7HjTkPo/MMvchpcXDz0m8IoZs3cuZpWWxkI6jw5EBsvrWcspo4sZmlYakGyqh9F5NOVmeWdEztH9g1XmSzPhc5wBIerBYHY3JMtOE8qdQF8BdOEuMfA1imV9Uii3tsAfKzfg564nMGYQHLoQaHOi88i+KhvCKZSuAPsiTk9Jhm9xZFWRcX1ges="
   },
   "ConnectionStrings": {},
   "Host": {

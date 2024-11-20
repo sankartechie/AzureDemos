@@ -6,6 +6,11 @@
     "storage1": {
       "type": "storage",
       "connectionId": "AzuriteConnstr"
+    },
+    "secrets2": {
+      "type": "secrets",
+      "connectionId": "KeyVaultUri",
+      "dynamicId": null
     }
   }
 }

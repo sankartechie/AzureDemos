@@ -407,3 +407,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/SportsFunctionsSolution/AzureFunctionsWebApi/obj/Debug/net8.0/AzureFunctionsWebApi.assets.cache
+/SportsFunctionsSolution/AzureFunctionsWebApi.Tests/obj/Debug/net8.0/AzureFunctionsWebApi.Tests.assets.cache
